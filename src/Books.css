@@ -1,120 +1,119 @@
 /* Global Background with Glassmorphism */
 html, body {
-    height: 100%;
-    margin: 0;
-    font-family: Arial, sans-serif;
-  }
-  
-  .bg {
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-image: radial-gradient(circle at 30% 86%, rgba(255,255,255,0.03) 0%, transparent 8%), 
-                      radial-gradient(circle at 65% 14%, rgba(255,255,255,0.04) 0%, transparent 4%),
-                      linear-gradient(135deg, rgb(23, 233, 173), rgb(29, 24, 208));
-    backdrop-filter: blur(10px);
-  }
-  
-  /* Glassmorphism Mixin */
-  @mixin glassmorphism() {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Container for Book App */
-  .book-container {
-    width: 80%;
-    margin: 50px auto;
-    padding: 20px;
-    border-radius: 10px;
-    color: #fff;
-    @include glassmorphism();
-  }
-  
-  /* Form Styling */
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  input {
-    padding: 10px;
-    font-size: 1em;
-    border: none;
-    border-radius: 5px;
-    background: rgba(255, 255, 255, 0.9);
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  input:focus {
-    outline: none;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-  }
-  
-  button {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    color: #fff;
-    font-size: 1em;
-    cursor: pointer;
-    background: rgba(255, 255, 255, 0.2);
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-    transition: background 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  button:hover {
-    background: rgba(255, 255, 255, 0.3);
-    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
-  }
-  
-  /* Table Styling */
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    border-radius: 10px;
-    overflow: hidden;
-    @include glassmorphism();
-  }
-  
-  th, td {
-    padding: 15px;
-    text-align: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  }
-  
-  th {
-    background: rgba(0, 0, 0, 0.3);
-    color: white;
-  }
-  
-  tr:nth-child(even) {
-    background: rgba(255, 255, 255, 0.05);
-  }
-  
-  tr:hover {
-    background: rgba(255, 255, 255, 0.2);
-  }
-  
-  td button {
-    background: #ff4d4d;
-    color: white;
-  }
-  
-  td button:hover {
-    background: #e60000;
-  }
-  
-  /* View All Button */
-  .view-all {
-    margin: 20px 0;
-    text-align: center;
-  }
-  
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.bg {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: radial-gradient(circle at 30% 86%, rgba(255,255,255,0.03) 0%, transparent 8%), 
+                    radial-gradient(circle at 65% 14%, rgba(255,255,255,0.04) 0%, transparent 4%),
+                    linear-gradient(135deg, rgb(23, 233, 173), rgb(29, 24, 208));
+  backdrop-filter: blur(10px);
+}
+
+/* Glassmorphism Mixin */
+@mixin glassmorphism() {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Container for Book App */
+.book-container {
+  width: 80%;
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 10px;
+  color: #fff;
+  @include glassmorphism();
+}
+
+/* Form Styling */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input {
+  padding: 10px;
+  font-size: 1em;
+  border: none;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+input:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 1em;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Table Styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  @include glassmorphism();
+}
+
+th, td {
+  padding: 15px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+th {
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
+}
+
+tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+tr:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+td button {
+  background: #ff4d4d;
+  color: white;
+}
+
+td button:hover {
+  background: #e60000;
+}
+
+/* View All Button */
+.view-all {
+  margin: 20px 0;
+  text-align: center;
+}

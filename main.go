@@ -23,7 +23,7 @@ func enableCORS(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		// Allow all origins for development. Change '*' to specific origin (e.g., "http://localhost:3000") for production.
 		w.Header().Set("Access-Control-Allow-Origin", "http://localhost:3000") // Use "*" for development or specify your React app URL
-		w.Header().Set("Access-Control-Allow-Methods", "GET, POST, DELETE, OPTIONS")
+		w.Header().Set("Access-Control-Allow-Methods", "GET, POST,PUT, DELETE, OPTIONS")
 		w.Header().Set("Access-Control-Allow-Headers", "Content-Type, Authorization") // Add any custom headers if needed
 		w.Header().Set("Access-Control-Allow-Credentials", "true")                    // Optional, if using credentials (cookies/sessions)
 
@@ -59,6 +59,28 @@ func createBook(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(book)
 }
 
+// Update a book by ID
+func updateBook(w http.ResponseWriter, r *http.Request) {
+	log.Println("PUT request received")
+	w.Header().Set("Content-Type", "application/json")
+	params := mux.Vars(r)
+	var updatedBook Book
+	if err := json.NewDecoder(r.Body).Decode(&updatedBook); err != nil {
+		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
+	}
+
+	for index, item := range books {
+		if item.ID == params["id"] {
+			books[index] = updatedBook
+			log.Printf("Book updated: %+v", updatedBook)
+			json.NewEncoder(w).Encode(updatedBook)
+			return
+		}
+	}
+	http.Error(w, "Book not found", http.StatusNotFound)
+}
+
 // Delete a book by ID
 func deleteBook(w http.ResponseWriter, r *http.Request) {
 	log.Println("DELETE request received")
@@ -88,6 +110,7 @@ func main() {
 	// Define Routes
 	router.HandleFunc("/api/books", getBooks).Methods("GET")
 	router.HandleFunc("/api/books", createBook).Methods("POST", "OPTIONS")
+	router.HandleFunc("/api/books/{id}", updateBook).Methods("PUT", "OPTIONS")
 	router.HandleFunc("/api/books/{id}", deleteBook).Methods("DELETE", "OPTIONS")
 
 	// Start the Server
