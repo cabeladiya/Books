@@ -29,3 +29,4 @@ Ensure you have the following installed on your system:
 ## **Open your browser and go to:**
     Frontend: http://localhost:3000
     Backend: http://localhost:8080
+    Backend: http://localhost:8080
