@@ -18,9 +18,9 @@ Ensure you have the following installed on your system:
 
 ---
 
-## **Backend Setup (Go)**
-   go mod tidy
-   go run main.go
+## **Backend Setup (React)**
+    go mod tidy
+    go run main.go
 
 ## **Frontend Setup (React)**
     npm install
